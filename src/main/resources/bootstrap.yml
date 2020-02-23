@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: stock-service
+profiles:
+   active:
+      default
+   cloud:
+       config:
+          enabled: true
