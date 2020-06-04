@@ -23,13 +23,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-/**
- *
- * @author Irfin A
- * 
- * @version 1.0 - Jan 5, 2007 ; initial version
- * @version 1.5 - Dec 19, 2014 ; penerapan JPA
- */
 @Entity
 @Table (name="gudang")
 @NamedQueries ({
@@ -148,25 +141,25 @@ public class Gudang
         return name;
     }
     
-//    @Override
-//    public boolean equals (Object obj)
-//    {
-//        if (obj == null)
-//            return false;
-//        if (getClass () != obj.getClass ())
-//            return false;
-//        
-//        final Gudang other = (Gudang) obj;
-//        if (this.systemId != other.systemId)
-//            return false;
-//        
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode ()
-//    {
-//        return systemId;
-//    }
+    @Override
+    public boolean equals (Object obj)
+    {
+        if (obj == null)
+            return false;
+        if (getClass () != obj.getClass ())
+            return false;
+        
+        final Gudang other = (Gudang) obj;
+        if (this.systemId != other.systemId)
+            return false;
+        
+        return true;
+    }
+
+    @Override
+    public int hashCode ()
+    {
+        return systemId;
+    }
 
 }

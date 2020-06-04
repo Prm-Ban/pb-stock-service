@@ -13,7 +13,6 @@ import org.springframework.data.domain.Pageable;
 import com.sunwell.stock.model.Gudang;
 import com.sunwell.stock.model.OnHandStock;
 import com.sunwell.stock.model.OnHandStockPK;
-import com.sunwell.stock.utils.Filters;
 
 
 public interface InventoryService
@@ -24,12 +23,9 @@ public interface InventoryService
 	public Page<OnHandStock> findOnHandByIdItemAndWarehouseId(int _item, int _gudang, Pageable _page) ;
 	public OnHandStock findOnHandByIdItemAndWarehouseId(int _item, int _gudang) ;
 	public Page<OnHandStock> findAllOnHandStock(Pageable _page) ;
-	public Page<OnHandStock> findOnHandStocks(Filters _f, Pageable _page) throws Exception ;
 	public Page<OnHandStock> findOnHandByIdItem(@NotNull(message="{error_no_item}") int _item, Pageable _page) ;
 	public Page<OnHandStock> findOnHandByWarehouse(@NotNull(message="{error_no_warehouse}") Gudang _gudang, Pageable _page) ;
-//	public Page<OnHandStock> findOnHandByItemId(int _id, Pageable _page) ;
 	public Page<OnHandStock> findOnHandByWarehouseId(int _gudang, Pageable _page) ;
-//	public double getOnHandQtyByIdItem(int _item) ;
 	public double getOnHandQtyByIdItem(int _item) ;
 	public OnHandStock createOnHand (@Valid @NotNull(message = "{error_no_onhand}") OnHandStock _oh);
 	public OnHandStock addOnHand (@Valid @NotNull(message = "{error_no_onhand}") OnHandStock _oh);

@@ -17,20 +17,6 @@ import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-/**
- * Atribut m_expiry_date dalam table database disimpan dalam tipe varchar(10) 
- * bukan date, sebab atribut ini menjadi bagian dari primary key sehingga tidak 
- * boleh null, meskipun secara programming nilainya adalah null. Untuk itu, 
- * jika tgl expire di progr adalah null, maka di database disimpan sebagai 
- * string kosong.
- * 
- * @author Irfin A 
- * @author Benny ( since versi 1.5 )
- * 
- * @version 1.0 - Sep 17 2008 ; versi awal 
- * @version 1.5 - Des 2 2014 ; tambahan atribut no batch dan no seri
- * @version 1.5.1 - Apr 27 2015 ; penyesuaian dengan jpa
- */
 @Entity
 @IdClass(OnHandStockPK.class)
 @Table(name="onhandstock")
@@ -75,15 +61,7 @@ public class OnHandStock implements Serializable
 //    @Transient
     @Column(name="expirydate")
     private Calendar expiryDate = null;
-      
-//    
-//    @Id
-//    @Column(name="source_ref_type")
-//    private int m_source_ref_type = IOnHandStockSourceRefConstants.REF_UNKNOWN;
-//    
-//    @Id
-//    @Column(name="source_ref_id")
-//    private int m_source_ref_id = 0;
+
     
     @Column(name="qty")
     private double qty = 0;
@@ -109,15 +87,6 @@ public class OnHandStock implements Serializable
     	qty = _qty;
     }
     
-//    public OnHandStock (Item _item, Gudang _gudang, Calendar _expDate, String _serialNo, String _batchNo, double _qty)
-//    {
-//    	item = _item;
-//    	warehouse = _gudang;
-//		setExpiryDate(_expDate);
-//    	setSerialNo(_serialNo);
-//    	setBatchNo(_batchNo);
-//    	qty = _qty;
-//    }
     
     public int getIdItem () { return idItem; }
 
@@ -141,20 +110,6 @@ public class OnHandStock implements Serializable
     }
 
     public Calendar getExpiryDate () { 
-//    	if(expiryDate == null) {
-//	    	if(strExpiryDate.length() > 0)
-//	    	{
-//	    		try {
-//		    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-DD-mm");
-//		    		expiryDate = Calendar.getInstance();
-//		    		expiryDate.setTime(sdf.parse(strExpiryDate));
-//	    		}
-//	    		catch(ParseException e) {
-//	    			e.printStackTrace();
-//	        	}
-//	    	}
-//    	}
-    	
     	return expiryDate;
     }
 
@@ -170,8 +125,7 @@ public class OnHandStock implements Serializable
     		setStrExpiryDate("");
     	}
     }
-//    
-//    
+    
     public String getBatchNo () { return batchNo; }
 
     public void setBatchNo (String _batchNo)

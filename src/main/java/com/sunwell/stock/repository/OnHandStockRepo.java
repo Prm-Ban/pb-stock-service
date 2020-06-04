@@ -21,7 +21,6 @@ public interface OnHandStockRepo extends JpaRepository<OnHandStock, OnHandStockP
 	public OnHandStock findByIdItemAndWarehouse_SystemId(int _pId, int _wId) ;
 	public Page<OnHandStock> findByIdItem(int _item, Pageable _page) ;
 	public Page<OnHandStock> findByWarehouse(Gudang _w, Pageable _page) ;
-//	public Page<OnHandStock> findByItem_SystemId(int _id, Pageable _page) ;
 	public Page<OnHandStock> findByWarehouse_SystemId(int _id, Pageable _page) ;
 	public Page<OnHandStock> findByIdItemAndWarehouse_SystemId(int _pId, int _wId, Pageable _page) ;
     public double getQtyByIdItem(@Param("item") int _item) ;

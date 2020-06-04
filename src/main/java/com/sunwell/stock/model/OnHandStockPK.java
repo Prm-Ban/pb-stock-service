@@ -22,11 +22,6 @@ public class OnHandStockPK implements Serializable
 {
     private int idItem ;
     private int warehouse ;
-//    private int m_source_ref_type ;
-//    private int m_source_ref_id ;
-//    private String strExpiryDate = "";
-//    private String batchNo = "" ;
-//    private String serialNo = "" ;
     
     public OnHandStockPK() {
     	
@@ -35,19 +30,7 @@ public class OnHandStockPK implements Serializable
     public OnHandStockPK(int _item, int _warehouse) {
     	idItem = _item;
     	warehouse = _warehouse;
-//    	strExpiryDate = _expDate;
-//    	serialNo = _serialNo;
-//    	batchNo = _batchNo;
     }
-    
-//    public OnHandStockPK(int _item, int _warehouse, String _expDate, String _serialNo, String _batchNo) {
-//    	item = _item;
-//    	warehouse = _warehouse;
-////    	strExpiryDate = _expDate;
-////    	serialNo = _serialNo;
-////    	batchNo = _batchNo;
-//    }
-    
     
     public int getIdItem ()
     {
@@ -69,44 +52,12 @@ public class OnHandStockPK implements Serializable
         this.warehouse = _w;
     }
     
-//    public String getBatchNo ()
-//    {
-//        return batchNo;
-//    }
-//
-//    public void setBatchNo (String _batch )
-//    {
-//        this.batchNo = _batch;
-//    }
-//    public String getSerialNo ()
-//    {
-//        return serialNo;
-//    }
-//
-//    public void setSerialNo (String _serial )
-//    {
-//        this.serialNo = _serial;
-//    }
-//    
-//    public String getExpiryDate ()
-//    {
-//        return strExpiryDate;
-//    }
-//
-//    public void setExpiryDate (String _exp )
-//    {
-//        this.strExpiryDate = _exp;
-//    }
-    
     @Override
     public int hashCode ()
     {
         int hash = 11;
         hash += idItem ;
         hash += warehouse ;
-//        hash += batchNo.hashCode () ;
-//        hash += strExpiryDate.hashCode () ;
-//        hash += serialNo.hashCode () ;
         return hash;
     }
 
@@ -123,12 +74,6 @@ public class OnHandStockPK implements Serializable
             return false;
         if (warehouse != other.warehouse)
             return false;
-//        if(!batchNo.equals (other.batchNo))
-//            return false;
-//        if(!strExpiryDate.equals (other.strExpiryDate))
-//            return false;
-//        if(!serialNo.equals (other.serialNo))
-//            return false;
         return true;
     }
 }

@@ -28,7 +28,6 @@ import com.sunwell.stock.dto.OnHandStockDTO;
 import com.sunwell.stock.model.Gudang;
 import com.sunwell.stock.model.OnHandStock;
 import com.sunwell.stock.services.InventoryService;
-import com.sunwell.stock.utils.Filters;
 import com.sunwell.stock.utils.ServiceUtil;
 
 
@@ -130,44 +129,6 @@ public class StockController
 		catch(Exception e) {
 			retData = svcUtil.handleException(e);
 		}
-        return new ResponseEntity<Map<String,Object>>(retData, null, HttpStatus.OK);
-    }
-    
-    @RequestMapping(value = "resources/stocks", method = RequestMethod.GET,
-			produces = "application/json", params="criteria"
-	)
-    public ResponseEntity<Map<String,Object>> getStocks(
-    		@RequestHeader(value="Authorization", required = false) String _auth,
-    		@RequestParam(value="criteria") List<String> _filters,
-    		Pageable _page
-    		) throws Exception 
-    {
-		Map<String,Object> retData = null;
-	
-		try {
-			Object mainData = null;
-    		Page<OnHandStock> pageStocks = null ;
-			int totalPages = 0;
-			long totalItems = 0;
-			Filters filters =  svcUtil.convertToFilters(_filters, OnHandStock.class);			
-			pageStocks = invSvc.findOnHandStocks(filters, _page);
-			if(pageStocks != null && pageStocks.getNumberOfElements() > 0) {
-            	totalPages = pageStocks.getTotalPages();
-            	totalItems = pageStocks.getTotalElements();
-            	List<OnHandStock> stocks = pageStocks.getContent();            	
-            	List<OnHandStockDTO> listOnHandDTO = new LinkedList<>();
-            	for(OnHandStock oh : stocks) {
-            		listOnHandDTO.add(new OnHandStockDTO(oh));
-            	}
-            	mainData = listOnHandDTO;
-        	}
-            
-            retData = svcUtil.returnSuccessfulData(mainData, totalPages, totalItems);
-		}
-		catch(Exception e) {
-			retData = svcUtil.handleException(e);
-		}
-		
         return new ResponseEntity<Map<String,Object>>(retData, null, HttpStatus.OK);
     }
         
