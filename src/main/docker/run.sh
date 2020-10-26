@@ -42,4 +42,4 @@ java -Djava.security.egd=file:/dev/./urandom -Dserver.port=$SERVER_PORT   \
      -Dspring.cloud.config.uri=$CONFIGSERVER_URI                          \
      -Dspring.cloud.stream.kafka.binder.zkNodes=$KAFKASERVER_URI          \
      -Dspring.cloud.stream.kafka.binder.brokers=$ZKSERVER_URI             \
-     -Dspring.profiles.active=$PROFILE -jar /usr/local/licensingservice/@project.build.finalName@.jar
+     -Dspring.profiles.active=$PROFILE -jar /usr/local/stockservice/@project.build.finalName@.jar

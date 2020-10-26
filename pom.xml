@@ -145,14 +145,17 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <finalName>pb-stock-service</finalName>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <start-class>com.sunwell.stock.Application</start-class>
-    <docker.image.name>johncarnell/tmx-licensing-service</docker.image.name>
-    <docker.image.tag>chapter8</docker.image.tag>
+    <project.build.finalName>pb-stock-service</project.build.finalName>
+    <docker.image.name>pb-stock-service</docker.image.name>
+    <docker.image.tag>snapshot</docker.image.tag>
   </properties>
 
   <build>
+     <finalName>${finalName}</finalName>
      <plugins>
          <!-- We use the Resources plugin to filer Dockerfile and run.sh, it inserts actual JAR filename -->
          <!-- The final Dockerfile will be created in target/dockerfile/Dockerfile -->
